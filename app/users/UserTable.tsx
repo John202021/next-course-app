@@ -12,7 +12,9 @@ interface Props {
 }
 
 const UserTable = async ({ sortOrder }: Props) => {
-  const res = await fetch("/api/users", {
+  const apiUrl = process.env.NEXTAUTH_URL;
+
+  const res = await fetch(`${apiUrl}/api/users`, {
     cache: "no-store",
   });
   const users: User[] = await res.json();
