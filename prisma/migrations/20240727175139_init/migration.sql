@@ -34,6 +34,7 @@ CREATE TABLE `users` (
     `name` VARCHAR(191) NULL,
     `email` VARCHAR(191) NULL,
     `email_verified` DATETIME(3) NULL,
+    `hashedPassword` VARCHAR(191) NULL,
     `image` VARCHAR(191) NULL,
 
     UNIQUE INDEX `users_email_key`(`email`),
