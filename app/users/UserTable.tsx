@@ -12,7 +12,7 @@ interface Props {
 }
 
 const UserTable = async ({ sortOrder }: Props) => {
-  const res = await fetch("http://localhost:3000/api/users", {
+  const res = await fetch("/api/users", {
     cache: "no-store",
   });
   const users: User[] = await res.json();
