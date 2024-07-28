@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NavBar from "./components/NavBar";
 import AuthProvider from "@/app/auth/Provider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
           <NavBar />
           <main className="p-5">{children}</main>
         </AuthProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
