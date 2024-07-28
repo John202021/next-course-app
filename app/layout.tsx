@@ -23,8 +23,8 @@ export default function RootLayout({
         <AuthProvider>
           <NavBar />
           <main className="p-5">{children}</main>
+          <SpeedInsights />
         </AuthProvider>
-        <SpeedInsights />
       </body>
     </html>
   );
