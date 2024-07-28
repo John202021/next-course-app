@@ -1,10 +1,9 @@
-"use client";
-
-import { useSession } from "next-auth/react";
+import { authOptions } from "@/app/api/auth/authOptions";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 
-const NavBar = () => {
-  const { status, data: session } = useSession();
+const NavBar = async () => {
+  const session = await getServerSession(authOptions);
 
   return (
     <div className="navbar bg-blue-400 shadow-md mb-5">
@@ -25,12 +24,11 @@ const NavBar = () => {
           <li>
             <Link href="/upload">Upload</Link>
           </li>
-          {status === "authenticated" && (
+          {session ? (
             <li>
               <Link href="/api/auth/signout">Sign out</Link>
             </li>
-          )}
-          {status === "unauthenticated" && (
+          ) : (
             <li>
               <Link href="/api/auth/signin">Login</Link>
             </li>
